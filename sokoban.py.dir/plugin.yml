@@ -1,0 +1,24 @@
+name: Sokoban
+main: SokobanPlugin
+version: 1.0
+commands:
+  enable_push:
+    description: Enables pushing of a particular kind of block
+    usage: /enable_push blockname
+    
+  disable_push:
+    description: Disables pushing of a particular kind of block
+    usage: /disable_push blockname
+    
+  list_pushable:
+    description: List the block kinds which can be pushed
+    usage: /list_pushable
+
+  list_levels:
+    description: List available Sokoban levels
+    usage: /list_levels
+
+  generate_level:
+    description: Generate a Sokoban level
+    usage: /generate_level level_id
+      

@@ -1,0 +1,7 @@
+name: Rubik
+main: RubikPlugin
+version: 1.0
+commands:
+  rubik:
+    description: Build a rubik cube
+    usage: /rubik

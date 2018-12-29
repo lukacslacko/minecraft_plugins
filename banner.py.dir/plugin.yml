@@ -1,0 +1,7 @@
+name: BannerText
+main: BannerTextPlugin
+version: 1.0
+commands:
+  bannertext:
+    description: Display text on banners
+    usage: /bannertext text

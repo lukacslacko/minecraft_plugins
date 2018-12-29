@@ -1,0 +1,7 @@
+name: Sudo
+main: SudoPlugin
+version: 1.0
+commands:
+  sudo:
+    description: Send a message as a different player
+    usage: /sudo player message

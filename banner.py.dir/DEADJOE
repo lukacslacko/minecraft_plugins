@@ -1,0 +1,65 @@
+
+*** These modified files were found in JOE when it aborted on Wed Dec 26 19:16:01 2018
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.yml
+plugin.py
+plugin.py
+plugin.py
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc
+
+*** These modified files were found in JOE when it aborted on Wed Dec 26 19:41:42 2018
+*** JOE was aborted because the terminal closed
+
+*** File 'plugin.py'
+from org.bukkit.entity import Player
+
+class BannerTextPlugin(PythonPlugin):
+    def onEnable(self):
+        self.getLogger().info("Msg plugin loaded")
+    
+    def banner(self,bf,jf,bk,jk,ba,ja,ki):
+        if bk or jk:
+            szin = "black_wall_banner"
+        else:
+            szin = "white_wall_banner"
+         
+
+    def onCommand(self, sender, command, label, args):
+        if isinstance(sender, Player):
+            if command.name == "bannertext":
+                sender.sendRawMessage("Banner text not implemented. Text: '" + ' '.join(args) + "'")
+                return True
+
+*** File '(Unnamed)'
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.py
+plugin.yml
+plugin.py
+plugin.py
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc

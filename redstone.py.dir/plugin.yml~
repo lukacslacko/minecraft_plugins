@@ -1,0 +1,8 @@
+name: Redstone
+main: RedstonePlugin
+version: 1.0
+commands:
+  four_bit_unit:
+    description: Creates a four bit memory unit anchored at a golden block. The user must look at a golden block
+    usage: /four_bit_unit
+    

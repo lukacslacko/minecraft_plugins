@@ -1,0 +1,21 @@
+name: Msg
+main: MsgPlugin
+version: 1.0
+commands:
+  msg:
+    description: Send a message to a user
+    usage: /msg player message
+  spy:
+    description: Spy on users messaging each other
+    usage: /spy target
+    default: op
+  spylist:
+    usage: /spylist
+    default: op
+    description: a  
+  nick:
+    usage: /nick player [nickname]
+    description: Set or remove the nickname of players
+  nicklist:
+    usage: /nicklist
+    descirption: List players' nicknames
