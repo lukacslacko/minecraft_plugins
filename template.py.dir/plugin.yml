@@ -1,0 +1,7 @@
+name: Template
+main: TemplatePlugin
+version: 1.0
+commands:
+  template_command:
+    description: Template for a command
+    usage: /template_command
