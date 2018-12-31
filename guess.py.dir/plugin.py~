@@ -1,0 +1,41 @@
+from org.bukkit.entity import Player
+
+import traceback
+
+from org.bukkit.event import EventPriority
+from org.bukkit.event.block import BlockPlaceEvent
+
+class GuessListener(PythonListener):
+    @PythonEventHandler(BlockPlaceEvent, EventPriority.NORMAL)
+    def onEvent(self, event):
+        sender = event.getPlayer()
+        try:
+            if not event.getBlockAgainst().getType() == bukkit.Material.CYAN_CONCRETE:
+                return
+            newBlock = event.getBlock().getLocation()
+            cyanBlock = event.getBlockAgainst().getLocation()
+            dx = newBlock.getX() - cyanBlock.getX()
+            dy = newBlock.getY() - cyanBlock.getY()
+            dz = newBlock.getZ() - cyanBlock.getZ()
+            cyanBlock.setX(cyanBlock.getX() - dx)
+            cyanBlock.setY(cyanBlock.getY() - dy)
+            cyanBlock.setZ(cyanBlock.getZ() - dz)
+            behind = sender.getWorld().getBlockAt(cyanBlock)
+            if not behind.getType() == bukkit.Material.BLUE_CONCRETE:
+                return
+            cyanBlock.setX(cyanBlock.getX() - 2*dx)
+            cyanBlock.setY(cyanBlock.getY() - 2*dy)
+            cyanBlock.setZ(cyanBlock.getZ() - 2*dz)
+            behind2 = sender.getWorld().getBlockAt(cyanBlock)
+            if behind2.getType() == bukkit.Material.AIR:
+                event.setBuild(False)
+        except Exception:
+            sender.sendRawMessage(traceback.format_exc())
+
+class GuessPlugin(PythonPlugin):
+    def onEnable(self):
+        try:
+            self.getServer().getPluginManager().registerEvents(GuessListener(), self)
+        except Exception:
+            traceback.print_exc()
+        

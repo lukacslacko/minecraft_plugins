@@ -1,0 +1,7 @@
+name: BinaryAdd
+main: BinaryAddPlugin
+version: 1.0
+commands:
+  binary_add:
+    description: Compute the sum of binary numbers
+    usage: /binary_add

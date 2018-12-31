@@ -1,0 +1,7 @@
+name: BinaryAdd
+main: BinaryAddPlugin
+version: 1.0
+commands:
+  binary_op:
+    description: Apply an operation on binary numbers
+    usage: /binary_op [+|*|-|/]
