@@ -75,20 +75,34 @@ class ButtonListener(PythonListener):
     def onEvent(self, event):
         sender = event.getPlayer()
         try:
-            sender.sendRawMessage('Interact')
-            if event.getClickedBlock() is None:
-                return True
-            loc = event.getClickedBlock().getState().getLocation()
+            l = sender.getLocation()
+            bl = sender.getLineOfSight(None,30)
+            for b in bl:
+                if block.getType() == bukkit.Material.AIR:
+                    l = b.getState().getLocation()
+                else:
+                    l = b.getState().getLocation()
+                    break
+            targetblock = sender.getWorld().getBlockAt(l)
+            loc = targetblock.getState().getLocation()
             xyz = [int(loc.getX()), int(loc.getY()), int(loc.getZ())]
             kockak_str = open("kockak.txt","r").read()
-            sender.sendRawMessage(kockak_str)
             kockak = eval(kockak_str)
             for kocka in kockak:
                 if xyz in kocka:
                     i = kocka.index(xyz)
-                    sender.sendRawMessage('Index ' + str(i))
                     if i == 1:
                         rotateBack(event.getPlayer(), kocka[0])
+                    if i == 2:
+                        rotateFront(event.getPlayer(), kocka[0])
+                    if i == 3:
+                        rotateBottom(event.getPlayer(), kocka[0])
+                    if i == 4:
+                        rotateTop(event.getPlayer(), kocka[0])
+                    if i == 5:
+                        rotateRight(event.getPlayer(), kocka[0])
+                    if i == 6:
+                        rotateLeft(event.getPlayer(), kocka[0])
         except Exception:
             sender.sendRawMessage(traceback.format_exc())
 

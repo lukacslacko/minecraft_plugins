@@ -13,4 +13,9 @@ commands:
     usage: /spylist
     default: op
     description: a  
-  
+  nick:
+    usage: /nick player [nickname]
+    description: Set or remove the nickname of players
+  nicklist:
+    usage: /nicklist
+    descirption: List players' nicknames

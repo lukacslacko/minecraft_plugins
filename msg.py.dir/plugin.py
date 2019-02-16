@@ -12,6 +12,7 @@ class MsgPlugin(PythonPlugin):
         print('Tipus: ' + str(type(self.nicks)))
 
     def nick(self, s, np):
+        self.nicks = eval(open("nick.txt","r").read())
         return str(self.nicks.get(s,{}).get(np,np))
 
     def onCommand(self, sender, command, label, args):
@@ -26,7 +27,7 @@ class MsgPlugin(PythonPlugin):
                 return True
             if command.name == "spy":
                 if len(args) < 1: return False
-                target = nick(sender.name,args[0])
+                target = self.nick(sender.name,args[0])
                 if sender in self.spies.get(target, []):
                     self.spies.get(target, []).remove(sender)
                     sender.sendRawMessage("You are no longer spying on %s" % target)
@@ -52,7 +53,7 @@ class MsgPlugin(PythonPlugin):
                     if not spy == sender and not spy == player:
                         spy.sendRawMessage(u"\u00A7b%s\u00A78\u21e8\u00A7b%s \u00A77%s" % (self.nick(spy.name,sender.name),self.nick(spy.name,player_name),message))
                 return True
-            if command.name == "nick":
+            if command.name == "n":
                 if len(args) == 0: return True
                 if len(args) == 1:
                     if not sender.name in self.nicks: self.nicks[sender.name] = {}
@@ -66,7 +67,7 @@ class MsgPlugin(PythonPlugin):
                     except Exception as e:
                         print("Hiba: " + str(e))
                 return True
-            if command.name == "nicklist":
+            if command.name == "icist":
                 f = []
                 for i in self.nicks[sender.name]:
                     if not i == self.nicks[sender.name][i]:

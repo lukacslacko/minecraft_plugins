@@ -7,7 +7,7 @@ from org.bukkit.event.player import PlayerInteractEvent
 
 FILENAME = "template.txt"
 
-class TemplateListener(PythonListener)>
+class TemplateListener(PythonListener):
     @PythonEventHandler(PlayerInteractEvent, EventPriority.NORMAL)
     def onEvent(self, event):
         sender = event.getPlayer()

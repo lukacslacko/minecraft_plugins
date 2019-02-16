@@ -11,6 +11,7 @@ def binary_op(blocks, sender, op):
     x = 0
     y = 0
     z = 0
+    first = True
     for row in blocks:
         x = row[0][0] + 1
         y = row[0][1]
@@ -22,14 +23,18 @@ def binary_op(blocks, sender, op):
             if [x+i,y,z] in blue_blocks:
                 number += pow
             pow *= 2
-        if op == "+":
-            total += number    
-        if op == "*":
-            total *= number
-        if op == "-":
-            total -= number
-        if op == "/":
-            total = int(total / number)
+        if first:
+            total = number
+            first = False
+        else:
+            if op == "+":
+                total += number    
+            if op == "*":
+                total *= number
+            if op == "-":
+                total -= number
+            if op == "/":
+                total = int(total / number)
     loc = sender.getLocation()
     z += 1
     x -= 1

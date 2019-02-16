@@ -75,10 +75,16 @@ class ButtonListener(PythonListener):
     def onEvent(self, event):
         sender = event.getPlayer()
         try:
-            sender.sendRawMessage('Interact')
-            if event.getClickedBlock() is None:
-                return True
-            loc = event.getClickedBlock().getState().getLocation()
+            l = sender.getLocation()
+            bl = sender.getLineOfSight(None,30)
+            for b in bl:
+                if b.getType() == bukkit.Material.AIR:
+                    l = b.getState().getLocation()
+                else:
+                    l = b.getState().getLocation()
+                    break
+            targetblock = sender.getWorld().getBlockAt(l)
+            loc = targetblock.getState().getLocation()
             xyz = [int(loc.getX()), int(loc.getY()), int(loc.getZ())]
             kockak_str = open("kockak.txt","r").read()
             kockak = eval(kockak_str)

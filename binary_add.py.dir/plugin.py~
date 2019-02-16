@@ -4,14 +4,13 @@ import traceback
 
 import blocks
 
-def binary_add(blocks, sender):
+def binary_op(blocks, sender, op):
     if blocks == "" or len(blocks) < 2:
         return
     total = 0
     x = 0
     y = 0
     z = 0
-    sender.sendRawMessage("Blocks " + str(blocks))
     for row in blocks:
         x = row[0][0] + 1
         y = row[0][1]
@@ -23,9 +22,14 @@ def binary_add(blocks, sender):
             if [x+i,y,z] in blue_blocks:
                 number += pow
             pow *= 2
-        sender.sendRawMessage("Number " + str(number))
-        total += number    
-    sender.sendRawMessage("Total sum " + str(total))
+        if op == "+":
+            total += number    
+        if op == "*":
+            total *= number
+        if op == "-":
+            total -= number
+        if op == "/":
+            total = int(total / number)
     loc = sender.getLocation()
     z += 1
     x -= 1
@@ -36,7 +40,6 @@ def binary_add(blocks, sender):
     world.getBlockAt(loc).setType(bukkit.Material.PURPLE_WOOL)
     while total > 0:
         loc.setX(1 + loc.getX())
-        sender.sendRawMessage("Remaining " + str(total))
         if total % 2 == 1:
             world.getBlockAt(loc).setType(bukkit.Material.LIGHT_BLUE_WOOL)
             total -= 1
@@ -54,8 +57,8 @@ class BinaryAddPlugin(PythonPlugin):
     def onCommand(self, sender, command, label, args):
         try:
             if isinstance(sender, Player):
-                if command.name == "binary_add":
-                    binary_add(blocks.blocks(sender, bukkit.Material), sender)
+                if command.name == "binary_op":
+                    binary_op(blocks.blocks(sender, bukkit.Material), sender, args[0])
         except Exception as e:
             sender.sendRawMessage(traceback.format_exc())
         return True
