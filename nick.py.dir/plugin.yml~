@@ -1,0 +1,10 @@
+name: Sudo
+main: SudoPlugin
+version: 1.0
+commands:
+  nick:
+    usage: /nick player [nickname]
+    description: Set or remove the nickname of players
+  nicklist:
+    usage: /nicklist
+    descirption: List players' nicknames

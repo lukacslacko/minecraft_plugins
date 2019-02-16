@@ -1,0 +1,28 @@
+def setblock(xyz,block,player):
+    l = player.getLocation()
+    l.setX(xyz[0])
+    l.setY(xyz[1])
+    l.setZ(xyz[2])
+    player.getWorld().getBlockAt(l).setType(block)
+def getplayerlocation(player):
+    return [player.getLocation().getX(),player.getLocation().getY(),player.getLocation().getZ()]
+def teleport(xyz,player):
+    l = player.getLocation()
+    l.setX(xyz[0])
+    l.setY(xyz[1])
+    l.setZ(xyz[2])
+    player.telaport(l)
+def getblock(xyz,player):
+    l = player.getLocation()
+    l.setX(xyz[0])
+    l.setY(xyz[1])
+    l.setZ(xyz[2])
+    return str(player.getWorld().getBlockAt(l).getType())[16:]
+def getair(xyz,player):
+    l = player.getLocation()
+    l.setX(xyz[0])
+    l.setY(xyz[1])
+    l.setZ(xyz[2])
+    return str(player.getWorld().getBlockAt(l).getType()) == "bukkit.Material.AIR"
+def neighbors(xyz):
+    return [[xyz[0]+1,xyz[1],xyz[2]],[xyz[0]-1,xyz[1],xyz[2]],[xyz[0],xyz[1],xyz[2]+1],[xyz[0],xyz[1],xyz[2]-1]]

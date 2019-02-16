@@ -1,0 +1,7 @@
+name: Eval
+main: Eval
+version: 1.0
+commands:
+    eval:
+        description: Tabla feliratanak kiertekelese
+        usage: /eval

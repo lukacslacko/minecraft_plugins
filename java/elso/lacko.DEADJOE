@@ -1,0 +1,25 @@
+
+*** These modified files were found in JOE when it aborted on Tue Feb  5 16:46:09 2019
+*** JOE was aborted because the terminal closed
+
+*** File 'helper.java'
+import org.bukkit.Material;import org.bukkit.entity.Player;class helper{public blokk getBlock(Player p){if(p.getTargetBlock((Set<Material>) null,6).equals(null)){return null}else{return new blokk(p.getTargetBlock((Set<Material>) null,5).getType(),p.getTargetBlock((Set<Material>) null,6))}return null}}
+
+*** File '(Unnamed)'
+Elso.java
+Elso.java
+Elso.java
+Elso.java
+Countdown.java
+Elso.java
+Elso.java
+Helper.java
+Blokk.java
+Blokk.java
+helper.java
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc

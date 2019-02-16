@@ -1,0 +1,7 @@
+name: Water
+main: WaterPlugin
+version: 1.0
+commands:
+  water:
+    description: Flood area with water
+    usage: /water

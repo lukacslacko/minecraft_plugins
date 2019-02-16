@@ -1,0 +1,7 @@
+name: Shoot
+main: ShootPlugin
+version: 1.0
+commands:
+  template_command:
+    description: Shoot in the direction the player is looking
+    usage: /shoot

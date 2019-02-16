@@ -1,0 +1,10 @@
+name: Elso
+main: Elso
+version: 1.0
+commands:
+    elso:
+        description: Elso parancs
+        usage: /elso
+    vissza:
+        description: Visszafele beszeles
+        usage: /vissza szoveg

@@ -1,0 +1,14 @@
+name: Stopper
+main: Stopper
+version: 1.0
+commands:
+    startmezo:
+        description: Start mezo beallitasa
+        usage: /startmezo
+    celmezo:
+        description: Cel mezo beallitasa
+        usage: /celmezo
+    stopper:
+        description: Rekordok kiirasa
+        usage: /stopper
+

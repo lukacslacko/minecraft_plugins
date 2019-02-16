@@ -1,0 +1,2 @@
+import java.util.Set;import org.bukkit.Material;import org.bukkit.entity.Player;class helper{public Blokk getBlock(Player p){if(p.getTargetBlock((Set<Material>) null,6).equals(null)){return null;}else{return new Blokk(p.getTargetBlock((Set<Material>) null,5).getType(),(int)p.getTargetBlock((Set<Material>) null,6).getLocation().getX(),(int)p.getTargetBlock((Set<Material>) null,6).getLocation().getY(),(int)p.getTargetBlock((Set<Material>) null,6).getLocation().getZ());}}}
+
